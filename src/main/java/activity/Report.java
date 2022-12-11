@@ -1,2 +1,4 @@
-package activity;public class Report {
+package activity;
+
+public record Report(ActivityType activityType, double distance) {
 }

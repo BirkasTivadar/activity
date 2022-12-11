@@ -2,36 +2,35 @@ package activity;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CoordinateTest {
     @Test
-    public void testInvalidLatitude() {
+    void testInvalidLatitude() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Coordinate(190.5, -34.789);
         });
     }
 
     @Test
-    public void testInvalidLongitude() {
+    void testInvalidLongitude() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Coordinate(30.5, -200);
         });
     }
 
     @Test
-    public void testInvalidCoordinate() {
-
+    void testInvalidCoordinate() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Coordinate(-91.0, 180.1);
         });
     }
 
     @Test
-    public void testCreateCoordinate() {
+    void testCreateCoordinate() {
         Coordinate coordinate = new Coordinate(12.5, -34.789);
-        assertEquals(12.5, coordinate.getLatitude());
-        assertEquals(-34.789, coordinate.getLongitude());
+        assertEquals(12.5, coordinate.latitude());
+        assertEquals(-34.789, coordinate.longitude());
     }
-
 }

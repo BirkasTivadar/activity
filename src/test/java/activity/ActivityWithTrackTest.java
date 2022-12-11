@@ -2,7 +2,8 @@ package activity;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ActivityWithTrackTest {
     Track track = new Track();
@@ -11,7 +12,7 @@ class ActivityWithTrackTest {
     );
 
     @Test
-    public void testGetDistance() {
+    void testGetDistance() {
         track.addTrackPoint(new TrackPoint(new Coordinate(12.5, 34.89), 123));
         track.addTrackPoint(new TrackPoint(new Coordinate(-12.5, 45.7), 124));
         track.addTrackPoint(new TrackPoint(new Coordinate(13.7, -6.0), 0));
@@ -21,7 +22,7 @@ class ActivityWithTrackTest {
     }
 
     @Test
-    public void testGetType() {
+    void testGetType() {
         assertEquals(ActivityType.RUNNING, activityWithTrack.getType());
     }
 

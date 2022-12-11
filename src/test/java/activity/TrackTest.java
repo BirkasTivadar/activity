@@ -2,21 +2,22 @@ package activity;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TrackTest {
     public Track track = new Track();
 
     @Test
-    public void testAddItemGetPoinsts() {
+    void testAddItemGetPoinsts() {
         assertEquals(0, track.getTrackPoints().size());
         track.addTrackPoint(new TrackPoint(new Coordinate(12.5, 34.89), 123));
         assertEquals(1, track.getTrackPoints().size());
-        assertEquals(34.89, track.getTrackPoints().get(0).getCoordinate().getLongitude());
+        assertEquals(34.89, track.getTrackPoints().get(0).coordinate().longitude());
     }
 
     @Test
-    public void testFullElevation() {
+    void testFullElevation() {
         track.addTrackPoint(new TrackPoint(new Coordinate(12.5, 34.89), 123));
         track.addTrackPoint(new TrackPoint(new Coordinate(12.5, 34.89), 124));
         track.addTrackPoint(new TrackPoint(new Coordinate(12.5, 34.89), 0));
@@ -26,7 +27,7 @@ class TrackTest {
     }
 
     @Test
-    public void testFullDecrease() {
+    void testFullDecrease() {
         track.addTrackPoint(new TrackPoint(new Coordinate(12.5, 34.89), 123));
         track.addTrackPoint(new TrackPoint(new Coordinate(12.5, 34.89), 124));
         track.addTrackPoint(new TrackPoint(new Coordinate(12.5, 34.89), 0));
@@ -36,7 +37,7 @@ class TrackTest {
     }
 
     @Test
-    public void testGetDistance() {
+    void testGetDistance() {
         track.addTrackPoint(new TrackPoint(new Coordinate(12.5, 34.89), 123));
         track.addTrackPoint(new TrackPoint(new Coordinate(-12.5, 45.7), 124));
         track.addTrackPoint(new TrackPoint(new Coordinate(13.7, -6.0), 0));
@@ -46,29 +47,29 @@ class TrackTest {
     }
 
     @Test
-    public void testFindMinimumCoordinate() {
+    void testFindMinimumCoordinate() {
         track.addTrackPoint(new TrackPoint(new Coordinate(12.5, 34.89), 123));
         track.addTrackPoint(new TrackPoint(new Coordinate(-12.5, 45.7), 124));
         track.addTrackPoint(new TrackPoint(new Coordinate(13.7, -6.0), 0));
         track.addTrackPoint(new TrackPoint(new Coordinate(3.67, -42.789), 200));
 
-        assertEquals(-12.5, track.findMinimumCoordinate().getLatitude());
-        assertEquals(-42.789, track.findMinimumCoordinate().getLongitude());
+        assertEquals(-12.5, track.findMinimumCoordinate().latitude());
+        assertEquals(-42.789, track.findMinimumCoordinate().longitude());
     }
 
     @Test
-    public void testFindMaximumCoordinate() {
+    void testFindMaximumCoordinate() {
         track.addTrackPoint(new TrackPoint(new Coordinate(12.5, 34.89), 123));
         track.addTrackPoint(new TrackPoint(new Coordinate(-12.5, 45.7), 124));
         track.addTrackPoint(new TrackPoint(new Coordinate(13.7, -6.0), 0));
         track.addTrackPoint(new TrackPoint(new Coordinate(3.67, -42.789), 200));
 
-        assertEquals(13.7, track.findMaximumCoordinate().getLatitude());
-        assertEquals(45.7, track.findMaximumCoordinate().getLongitude());
+        assertEquals(13.7, track.findMaximumCoordinate().latitude());
+        assertEquals(45.7, track.findMaximumCoordinate().longitude());
     }
 
     @Test
-    public void testGetRectangleArea() {
+    void testGetRectangleArea() {
         track.addTrackPoint(new TrackPoint(new Coordinate(12.5, 34.89), 123));
         track.addTrackPoint(new TrackPoint(new Coordinate(-12.5, 45.7), 124));
         track.addTrackPoint(new TrackPoint(new Coordinate(13.7, -6.0), 0));
@@ -76,5 +77,4 @@ class TrackTest {
 
         assertEquals(2318.4118, track.getRectangleArea());
     }
-
 }
