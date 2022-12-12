@@ -11,6 +11,7 @@ Egy útpont tartalmaz koordinátákat és magasságot. A tevékenységeket list�
 
 
 A megvalósításhoz a következő elemeket kell implementálni:
+
 ActivityType enum: Négy féle típus lehet: BIKING,HIKING,RUNNING,BASKETBALL.
 Fontos, hogy ebben a sorrendben.
 
