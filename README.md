@@ -1,7 +1,6 @@
 # activity
 Activity projekt feladat
 
-Activity projekt
 A feladatban egy úgynevezett Activity Tracker alkalmazás szimulációját kell megvalósítani, mellyel nyilvántarthatjuk sportolási tevékenységeinket, és lekérdezhetjük eredményeinket.
 Különböző sportolási tevékenységek (activity) vannak, mint a kerékpározás, túrázás, kosárlabda, stb.
 Ezek közül vannak olyanok, melyekhez tartozhat út (track), és van, amelyhez nem. Az út útpontokból (trackpoint) áll.
